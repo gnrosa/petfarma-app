@@ -29,7 +29,7 @@ def admin():
 	if not session.get('logged_in'):
 		return render_template('login.html', form=form)
 	else:
-		return render_template('admin.html', pedidos=pedidos)
+		return render_template('admin.html', pedidos=pedido)
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
@@ -43,3 +43,7 @@ def do_admin_login():
 def logout():
 	session['logged_in'] = False
 	return redirect('admin')
+
+if __name__ == '__main__':
+	port = int(os.environ.get("PORT",5000))
+	app.run(host='0.0.0.0', port=port)
