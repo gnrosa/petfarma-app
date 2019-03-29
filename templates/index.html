@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col s12 center">
+				<h4><strong>Acompanhe aqui o seu pedido</strong></h4>
+				<p>Utilize o formulário abaixo para consultar o seu pedido.</p>
+			</div>
+			<div class="col s12 center">
+				<form method="POST" action="">
+					{{ form.csrf_token }}
+					{{ form.id.label }}
+					{{ form.id }}
+					<input type="submit" name="" value="Buscar" class="btn teal">
+				</form>
+			</div>
+			{% if resultado %}
+			<div class="col s12 center">
+				<h4>Resultado da busca</h4>
+				<table class="centered responsive-table">
+					<thead>
+						<tr>	
+							<th>Número do pedido</th>
+							<th>Cliente</th>
+							<th>Descrição do pedido</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{ resultado.id }}</td>
+							<td>{{ resultado.cliente }}</td>
+							<td>{{ resultado.desc }}</td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>Status do pedido</h4><br>
+				{% if resultado.status == 1 %}
+				<img src="{{ url_for('static', filename='img/fase1.png') }}" class="responsive-img">
+				{% elif resultado.status == 2 %}
+				<img src="{{ url_for('static', filename='img/fase2.png') }}" class="responsive-img">
+				{% elif resultado.status == 3 %}
+				<img src="{{ url_for('static', filename='img/fase3.png') }}" class="responsive-img">
+				{% elif resultado.status == 4 %}
+				<img src="{{ url_for('static', filename='img/fase4.png') }}" class="responsive-img">
+				{% elif resultado.status == 5 %}
+				<img src="{{ url_for('static', filename='img/fase5.png') }}" class="responsive-img">
+				{% else %}
+				<h4>Nenhum resultado encontrado</h4>
+				{% endif %}
+			</div>
+			{% endif %}
+		</div>
+		<!--
+		<div class="row">
+			<div class="col s12">
+				<table>
+					<thead>
+						<th>ID</th>
+						<th>CLiente</th>
+						<th>Descrição</th>
+						<th>Status</th>
+					</thead>
+					<tbody>
+						{% for pedido in pedidos %}
+						<tr>
+							<td>{{ pedido.id }}</td>
+							<td>{{ pedido.cliente }}</td>
+							<td>{{ pedido.desc }}</td>
+							<td>{{ pedido.status }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	-->
+	</div>
+
+{% endblock %}

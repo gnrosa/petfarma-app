@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Website Title -->
+  <title>Pet Farma</title>
+
+  <!-- Meta declaration -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+  
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+           
+</head>
+<body>
+  <!-- Navbar -->
+    <nav class="white">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center"><strong><span class="teal-text"> Pet</span><span class="pink-text">Farma</span></strong></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger teal-text"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="#" class="teal-text">Produtos</a></li>
+              <li><a href="#" class="teal-text">Sobre nós</a></li>
+              <li><a href="#" class="teal-text">Contato</a></li>
+            </ul>
+        </div>
+      </nav>
+  <!-- Sidenav for small devices -->
+      <ul class="sidenav" id="mobile-demo">
+        <h4 class="center"><strong><span class="teal-text">Pet</span><span class="pink-text">Farma</span></strong></a></h4>
+          <li><a href="#" class="teal-text">Produtos</a></li>
+          <li><a href="#" class="teal-text">Sobre nós</a></li>
+          <li><a href="#" class="teal-text">Contato</a></li>
+      </ul>
+      {% block body %}
+      {% endblock %}
+  <!-- Footer -->
+    <footer class="page-footer grey lighten-3">
+      <div class="container">
+        <div class="row">
+          <div class="col m4 s12 center">
+            <h5 class="pink-text">Redes Sociais</h5>
+            <ul>
+              <li class="teal-text"><a href="">Facebook</a></li>
+              <li class="teal-text"><a href="">Instagram</a></li>
+              <li class="teal-text"><a href="">Youtube</a></li>
+            </ul>
+          </div>
+          <div class="col m4 s12 center">
+            <h5 class="pink-text">Localização</h5>
+            <ul>
+              <li class="teal-text">
+                <a href="https://goo.gl/maps/Uj6iT8wmknu" target="_blank">Av. Eng. Armando de Arruda Pereira, 2308 <br> Jabaquara <br> São Paulo</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col m4 s12 center">
+            <h5 class="pink-text">Contato</h5>
+            <ul>
+              <li class="teal-text">
+                <a href="tel:1194146-2167">(11) 94146-2167</a>
+              </li>
+              <li class="teal-text">
+                <a href="mailto:guilherme-nunes@live.com">guilherme-nunes@live.com</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col s12 center">
+            <h5 class="pink-text ">Formas de pagamento</h5>
+            <ul>
+              <li>
+                <img src="{{ url_for('static', filename='img/footer/footer.png') }}" style="height: 50px;">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center">
+          <span class="teal-text">© 2019 Todos os direitos reservados - Guilherme Nunes Rosa</span>
+        </div>
+      </div>
+    </footer>
+  <!-- JS Configuration-->
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      
+      <!-- Materialize Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
+      <!-- Materialize JS functions-->
+      <script src="{{ url_for('static', filename='js/init.js') }}"></script> 
+</body>
+</html>
