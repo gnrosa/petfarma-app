@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+	<div class="col s12 center">
+		<h4>Administração de pedidos</h4>
+			<form action="/logout" method="POST">
+				<input type="submit" name="" value="sair" class="btn">
+			</form>
+		<table>
+			<thead>
+				<th>ID</th>
+				<th>CLiente</th>
+				<th>Descrição</th>
+				<th>Status</th>
+			</thead>
+			<tbody>
+				{% for pedido in pedidos %}
+				<tr>
+					<td>{{ pedido.id }}</td>
+					<td>{{ pedido.cliente }}</td>
+					<td>{{ pedido.desc }}</td>
+						{% if pedido.status == 1 %}
+						<td>{{ pedido.status }} - Análise da receita</td>
+						{% elif pedido.status == 2 %}
+						<td>{{ pedido.status }} - Aguardando pagamento</td>
+						{% elif pedido.status == 3 %}
+						<td>{{ pedido.status }} - Em laboratório</td>
+						{% elif pedido.status == 4 %}
+						<td>{{ pedido.status }} - Em transporte</td>
+						{% elif pedido.status == 5 %}
+						<td>{{ pedido.status }} - Entregue</td>
+						{% endif %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}
